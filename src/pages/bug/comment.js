@@ -1,6 +1,7 @@
 import React from 'react';
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
+import Cookie from 'js-cookie'
 
 const { TextArea } = Input;
 
@@ -48,7 +49,7 @@ class BugComment extends React.Component {
         value: '',
         comments: [
           {
-            author: 'Han Solo',
+            author: Cookie.get('username'),
             // avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),

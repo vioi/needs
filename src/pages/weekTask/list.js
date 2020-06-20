@@ -11,6 +11,11 @@ class WeekList extends React.Component{
         super(props)
         this.state ={
             columns:[
+              {
+                title: 'ID',
+                dataIndex: 'key',
+                key: 'key',
+              },
                 {
                   title: '需求',
                   dataIndex: 'module',

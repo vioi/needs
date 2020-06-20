@@ -12,8 +12,8 @@ class BugList extends React.Component{
             columns:[
                 {
                   title: 'ID',
-                  dataIndex: 'sn',
-                  key: 'sn',
+                  dataIndex: 'key',
+                  key: 'key',
                   width:"10%"
                 },
                 {
@@ -37,13 +37,13 @@ class BugList extends React.Component{
                 {
                     title: '状态',
                     width:"10%",
-                    dataIndex: 'status',
-                    key: 'status',
-                    render: (status) => (
+                    dataIndex: 'state',
+                    key: 'state',
+                    render: (state) => (
                         <span>
                         {(()=>{
                             let color = 'green';
-                            switch (status) {
+                            switch (state) {
                                 case "NEW":
                                     color ='red'
                                     break;
@@ -61,8 +61,8 @@ class BugList extends React.Component{
                                     break;  
                             };
                             return (
-                              <Tag color={color} key={status}>
-                                {status}
+                              <Tag color={color} key={state}>
+                                {state}
                               </Tag>
                             );
                         })()

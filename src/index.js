@@ -5,6 +5,7 @@ import Admin from './admin'
 import Router from './router'
 import { Provider } from 'react-redux'
 import configureStore from './redux/store/configureStore';
+import './mock/mockServer.js'
 import registerServiceWorker from './registerServiceWorker';
 // Redux Store对象，管理所有的Redux状态
 const store = configureStore();

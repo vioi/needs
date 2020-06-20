@@ -47,6 +47,7 @@ export class Home extends React.Component {
         
     }
     pieHandle=(param)=>{
+        this.props.history.push('/report/list')
         console.warn(param.name)
     }
     initPie(id) {

@@ -30,6 +30,14 @@ const menuList = [
         title: '每周任务',
         key: '/weekTask/list'
     },
+    {
+        title: '错误号',
+        key: '/errorNum/list'
+    },
+    {
+        title: '框架报告',
+        key: '/report/list'
+    }
     // {
     //     title: '富文本',
     //     key: '/rich'

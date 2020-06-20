@@ -5,6 +5,11 @@ import Admin from './admin'
 import Home from './pages/home';
 import Buglist from './pages/bug/list'
 import WeekTask from './pages/weekTask/list'
+import ErrorNum from './pages/errornum/list';
+import Report from './pages/report/list';
+import Blank from './blank';
+
+
 
 export default class ERouter extends React.Component{
 
@@ -28,6 +33,11 @@ export default class ERouter extends React.Component{
                                     <Route path="/bug/list" component={Buglist} />
                                     <Route path="/weekTask/list" component={WeekTask} />
                                     <Route path="/weekTask/list" component={WeekTask} />
+                                    <Route path="/errorNum/list" component={ErrorNum} />
+                                    <Route path="/report/list" component={Report} />
+                                    <Route path="/blank/:tag" component={Blank} />
+
+
                                 </Switch>
                             </Admin>         
                         } />

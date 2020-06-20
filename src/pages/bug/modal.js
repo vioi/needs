@@ -12,9 +12,8 @@ class EditModalTask extends React.Component{
         super(props)
         this.state={
             receiver:[],
-            tags:[],
             fileList: [],
-            state:'NEW',
+            state:'',
             module:'',
             product:'',
             uploading: false,
@@ -33,7 +32,11 @@ class EditModalTask extends React.Component{
                 '聚合接口',
                 '双机热备',
                 'PPPOE',
-                '访问控制'
+                '访问控制',
+                '路由',
+                '地址转换',
+                '用户管理',
+                '虚系统'
 
             ],
             products:[
@@ -56,15 +59,15 @@ class EditModalTask extends React.Component{
         const id = this.props.match.params.tag;
         if(id!="add"){
             axios.ajax({
-                url:'/needs',
+                url:'/bugs',
                 method:'get',
                 data:{
                     id:id
                 }
               }).then((res)=>{
-                const need = res.data.need;
-                const {receiver,tags,state,module} = need
-                this.setState({receiver,tags,state,module})
+                const bug = res.data.bug;
+                const {receiver,product,state,module} = bug
+                this.setState({receiver,product,state,module})
               })
         }
     }
@@ -141,12 +144,11 @@ class EditModalTask extends React.Component{
             // form.resetFields();
             return this.props.form.getFieldsValue();
           }  
-        const { receiver,tags,state,module,product} = this.state;
+        const { receiver,state,module,product} = this.state;
         const filteredReceivers = this.state.option.filter(o => (!receiver.includes(o)))
-        const filteredTags = this.state.modules.filter(o => (!tags.includes(o)))
         const filteredStates = this.state.states.filter(o => !state!=o)
         const filteredProducts = this.state.products.filter(o => !product!=o)
-        const filteredModules = this.state.products.filter(o => !module!=o)
+        const filteredModules = this.state.modules.filter(o => !module!=o)
 
 
 
@@ -196,7 +198,7 @@ class EditModalTask extends React.Component{
              <FormItem label="产品系统" {...formItemLayout}>
                     {
                         getFieldDecorator('product',{
-                            initialValue:tags,
+                            initialValue:product,
                             rules: [
                                 {
                                   required: true,
@@ -224,8 +226,8 @@ class EditModalTask extends React.Component{
                 </FormItem> 
                 <FormItem label="模块" {...formItemLayout}>
                     {
-                        getFieldDecorator('tags',{
-                            initialValue:tags,
+                        getFieldDecorator('module',{
+                            initialValue:module,
                             rules: [
                                 {
                                   required: true,

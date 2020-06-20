@@ -77,8 +77,6 @@ class EditModalTask extends React.Component{
             data.id = id;
             const tags = typeof(data.tags)=='string'?[data.tags]:data.tags
             const receiver = typeof(data.receiver)=='string'?[data.receiver]:data.receiver
-
-
             let formData = new FormData();
             formData.append('id',data.id)
             formData.append('tags',tags)
